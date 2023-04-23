@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+        <variable
+            name="besin"
+            type="com.example.besinlerkitabitekrar.model.Besin" />
+
+        <variable
+            name="listener"
+            type="com.example.besinlerkitabitekrar.model.BesinClickListener" />
+    </data>
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="horizontal"
+    android:layout_margin="3dp"
+    android:onClick="@{listener::besinTiklandi}"
+    >
+
+    <TextView
+        android:id="@+id/uuidtxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:text="@{String.valueOf(besin.uuid)}"
+        ></TextView>
+
+    <ImageView
+        android:id="@+id/canView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="2"
+        android:downloadimage="@{besin.besinGorsel}"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/isim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{besin.besinIsim}"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/kalori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{besin.besinKalori}"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>
+
+</layout>
